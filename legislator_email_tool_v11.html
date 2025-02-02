@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Your Legislator - AB 498</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #F4F4F4, #E8E8E8);
+            color: #333;
+            text-align: center;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        /* FOP Ad Styling */
+        .fop-ad {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #0056b3;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .fop-ad img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            border: 2px solid white;
+        }
+
+        .fop-ad a {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .fop-ad a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form Container */
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #0275d8;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #0275d8;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Input Fields */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            background: #fafafa;
+            color: #333;
+        }
+
+        /* Button Styling */
+        button {
+            background: #0275d8;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0256a3;
+        }
+
+        /* Result Box */
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+
+        /* Professional Email Link Button */
+        .email-button {
+            display: inline-block;
+            padding: 14px 22px;
+            background: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 1px solid #004494;
+            text-align: center;
+            width: auto;
+            margin-top: 15px;
+        }
+
+        .email-button:hover {
+            background: #004494;
+            border-color: #003366;
+        }
+    </style>
+    <script>
+        const legislatorData = {88901: 'cinthia.moore@asm.state.nv.us  ', 88905: 'cinthia.moore@asm.state.nv.us  ', 89001: 'Bert.Gurr@asm.state.nv.us', 89002: 'Toby.Yurek@asm.state.nv.us', 89003: 'Bert.Gurr@asm.state.nv.us', 89004: 'Gregory.Hafen@asm.state.nv.us', 89005: 'Danielle.Gallant@asm.state.nv.us', 89006: 'Danielle.Gallant@asm.state.nv.us', 89007: 'Toby.Yurek@asm.state.nv.us', 89008: 'Bert.Gurr@asm.state.nv.us', 89009: 'Melissa.Hardy@asm.state.nv.us', 89010: 'Gregory.Koenig@asm.state.nv.us', 89011: 'Max.Carter@asm.state.nv.us', 89012: 'Elaine.Marzola@asm.state.nv.us', 89013: 'Gregory.Koenig@asm.state.nv.us', 89014: 'Cecelia.Gonzalez@asm.state.nv.us', 89015: 'Max.Carter@asm.state.nv.us', 89016: 'joe.dalia@asm.state.nv.us', 89017: 'Bert.Gurr@asm.state.nv.us', 89018: 'Gregory.Hafen@asm.state.nv.us', 89019: 'Gregory.Hafen@asm.state.nv.us', 89020: 'Bert.Gurr@asm.state.nv.us', 89021: 'Toby.Yurek@asm.state.nv.us', 89022: 'Gregory.Koenig@asm.state.nv.us', 89023: 'Bert.Gurr@asm.state.nv.us', 89024: 'Toby.Yurek@asm.state.nv.us', 89025: 'Toby.Yurek@asm.state.nv.us', 89026: 'Gregory.Hafen@asm.state.nv.us', 89027: 'Toby.Yurek@asm.state.nv.us', 89028: 'Danielle.Gallant@asm.state.nv.us', 89029: 'Danielle.Gallant@asm.state.nv.us', 89030: 'jovan.jackson@asm.state.nv.us', 89031: 'Daniele.MonroeMoreno@asm.state.nv.us', 89032: 'jovan.jackson@asm.state.nv.us', 89033: 'Daniele.MonroeMoreno@asm.state.nv.us', 89034: 'Toby.Yurek@asm.state.nv.us', 89036: 'Toby.Yurek@asm.state.nv.us', 89037: 'Toby.Yurek@asm.state.nv.us', 89039: 'Danielle.Gallant@asm.state.nv.us', 89040: 'Toby.Yurek@asm.state.nv.us', 89041: 'Gregory.Hafen@asm.state.nv.us', 89042: 'Bert.Gurr@asm.state.nv.us', 89043: 'Bert.Gurr@asm.state.nv.us', 89044: 'Danielle.Gallant@asm.state.nv.us', 89045: 'Gregory.Koenig@asm.state.nv.us', 89046: 'Danielle.Gallant@asm.state.nv.us', 89047: 'Gregory.Koenig@asm.state.nv.us', 89048: 'Gregory.Hafen@asm.state.nv.us', 89049: 'Bert.Gurr@asm.state.nv.us', 89052: 'Elaine.Marzola@asm.state.nv.us', 89053: 'Max.Carter@asm.state.nv.us', 89054: 'Gregory.Hafen@asm.state.nv.us', 89060: 'Bert.Gurr@asm.state.nv.us', 89061: 'Gregory.Hafen@asm.state.nv.us', 89067: 'Toby.Yurek@asm.state.nv.us', 89070: 'Gregory.Hafen@asm.state.nv.us', 89074: 'Elaine.Marzola@asm.state.nv.us', 89077: 'Elaine.Marzola@asm.state.nv.us', 89081: 'linda.hunt@asm.state.nv.us', 89084: 'Daniele.MonroeMoreno@asm.state.nv.us', 89085: 'Daniele.MonroeMoreno@asm.state.nv.us', 89086: 'linda.hunt@asm.state.nv.us', 89087: 'cinthia.moore@asm.state.nv.us', 89101: 'cinthia.moore@asm.state.nv.us', 89102: 'venise.karris@asm.state.nv.us', 89103: 'Howard.Watts@asm.state.nv.us', 89104: 'Erica.Mosca@asm.state.nv.us', 89105: 'Melissa.Hardy@asm.state.nv.us', 89106: 'jovan.jackson@asm.state.nv.us', 89107: 'jovan.jackson@asm.state.nv.us', 89108: 'Selena.Torres@asm.state.nv.us', 89109: 'Howard.Watts@asm.state.nv.us', 89110: 'cinthia.moore@asm.state.nv.us  ', 89111: 'Cecelia.Gonzalez@asm.state.nv.us', 89112: 'Venicia.Considine@asm.state.nv.us', 89113: 'Duy.Nguyen@asm.state.nv.us', 89114: 'Howard.Watts@asm.state.nv.us', 89115: 'tanya.flanagan@asm.state.nv.us', 89116: 'Erica.Mosca@asm.state.nv.us', 89117: 'Heidi.Kasama@asm.state.nv.us', 89118: 'Duy.Nguyen@asm.state.nv.us', 89119: 'Howard.Watts@asm.state.nv.us', 89120: 'Cecelia.Gonzalez@asm.state.nv.us', 89121: 'Erica.Mosca@asm.state.nv.us', 89122: 'Max.Carter@asm.state.nv.us', 89123: 'Duy.Nguyen@asm.state.nv.us', 89124: 'Max.Carter@asm.state.nv.us', 89125: 'cinthia.moore@asm.state.nv.us', 89126: 'venise.karris@asm.state.nv.us', 89127: 'jovan.jackson@asm.state.nv.us', 89128: 'hanadi.nadeem@asm.state.nv.us', 89129: 'Selena.Torres@asm.state.nv.us', 89130: 'Selena.Torres@asm.state.nv.us', 89131: 'Daniele.MonroeMoreno@asm.state.nv.us', 89132: 'Cecelia.Gonzalez@asm.state.nv.us', 89133: 'cinthia.moore@asm.state.nv.us', 89134: 'hanadi.nadeem@asm.state.nv.us', 89135: 'Heidi.Kasama@asm.state.nv.us', 89136: 'lisa.cole@asm.state.nv.us', 89137: 'cinthia.moore@asm.state.nv.us', 89138: 'Heidi.Kasama@asm.state.nv.us', 89139: 'Duy.Nguyen@asm.state.nv.us', 89140: 'Cecelia.Gonzalez@asm.state.nv.us', 89141: 'Duy.Nguyen@asm.state.nv.us', 89142: 'Max.Carter@asm.state.nv.us', 89143: 'Brian.Hibbetts@asm.state.nv.us', 89144: 'Heidi.Kasama@asm.state.nv.us', 89145: 'Heidi.Kasama@asm.state.nv.us', 89146: 'venise.karris@asm.state.nv.us', 89147: 'Heidi.Kasama@asm.state.nv.us', 89148: 'Heidi.Kasama@asm.state.nv.us', 89149: 'Selena.Torres@asm.state.nv.us', 89150: 'Heidi.Kasama@asm.state.nv.us', 89151: 'venise.karris@asm.state.nv.us', 89152: 'venise.karris@asm.state.nv.us', 89153: 'venise.karris@asm.state.nv.us', 89155: 'cinthia.moore@asm.state.nv.us', 89156: 'Max.Carter@asm.state.nv.us', 89157: 'cinthia.moore@asm.state.nv.us', 89158: 'Howard.Watts@asm.state.nv.us', 89159: 'Cecelia.Gonzalez@asm.state.nv.us', 89160: 'Venicia.Considine@asm.state.nv.us', 89161: 'Steve.Yeager@asm.state.nv.us', 89162: 'cinthia.moore@asm.state.nv.us', 89163: 'cinthia.moore@asm.state.nv.us', 89164: 'Brittney.Miller@asm.state.nv.us', 89165: 'linda.hunt@asm.state.nv.us', 89166: 'lisa.cole@asm.state.nv.us', 89169: 'Howard.Watts@asm.state.nv.us', 89170: 'Howard.Watts@asm.state.nv.us', 89173: 'Tracy.BrownMay@asm.state.nv.us', 89177: 'Cecelia.Gonzalez@asm.state.nv.us', 89178: 'Duy.Nguyen@asm.state.nv.us', 89179: 'rebecca.edgeworth@asm.state.nv.us', 89180: 'Tracy.BrownMay@asm.state.nv.us', 89183: 'Elaine.Marzola@asm.state.nv.us', 89185: 'cinthia.moore@asm.state.nv.us', 89193: 'Cecelia.Gonzalez@asm.state.nv.us', 89195: 'Cecelia.Gonzalez@asm.state.nv.us', 89199: 'Cecelia.Gonzalez@asm.state.nv.us', 89301: 'Bert.Gurr@asm.state.nv.us', 89310: 'Alexis.Hansen@asm.state.nv.us', 89311: 'Bert.Gurr@asm.state.nv.us', 89314: 'Bert.Gurr@asm.state.nv.us', 89315: 'Bert.Gurr@asm.state.nv.us', 89316: 'Bert.Gurr@asm.state.nv.us', 89317: 'Bert.Gurr@asm.state.nv.us', 89318: 'Bert.Gurr@asm.state.nv.us', 89319: 'Bert.Gurr@asm.state.nv.us', 89402: 'Rich.Delong@asm.state.nv.us', 89403: 'Ken.Gray@asm.state.nv.us', 89404: 'Alexis.Hansen@asm.state.nv.us', 89406: 'Gregory.Koenig@asm.state.nv.us', 89407: 'Gregory.Koenig@asm.state.nv.us', 89408: 'Gregory.Koenig@asm.state.nv.us', 89409: 'Gregory.Koenig@asm.state.nv.us', 89410: 'Ken.Gray@asm.state.nv.us', 89411: 'Ken.Gray@asm.state.nv.us', 89412: 'Alexis.Hansen@asm.state.nv.us', 89413: 'Ken.Gray@asm.state.nv.us', 89414: 'Alexis.Hansen@asm.state.nv.us', 89415: 'Gregory.Koenig@asm.state.nv.us', 89418: 'Alexis.Hansen@asm.state.nv.us', 89419: 'Alexis.Hansen@asm.state.nv.us', 89420: 'Gregory.Koenig@asm.state.nv.us', 89421: 'Alexis.Hansen@asm.state.nv.us', 89422: 'Gregory.Koenig@asm.state.nv.us', 89423: 'Ken.Gray@asm.state.nv.us', 89424: 'Alexis.Hansen@asm.state.nv.us', 89425: 'Alexis.Hansen@asm.state.nv.us', 89426: 'Alexis.Hansen@asm.state.nv.us', 89427: 'Gregory.Koenig@asm.state.nv.us', 89428: 'Ken.Gray@asm.state.nv.us', 89429: 'Gregory.Koenig@asm.state.nv.us', 89430: 'Gregory.Koenig@asm.state.nv.us', 89431: 'heather.goulding@asm.state.nv.us', 89432: 'Natha.Anderson@asm.state.nv.us', 89433: 'heather.goulding@asm.state.nv.us', 89434: 'Natha.Anderson@asm.state.nv.us', 89435: 'Natha.Anderson@asm.state.nv.us', 89436: 'heather.goulding@asm.state.nv.us', 89437: 'PK.Oneill@asm.state.nv.us', 89438: 'Alexis.Hansen@asm.state.nv.us', 89439: 'Rich.Delong@asm.state.nv.us', 89440: 'PK.Oneill@asm.state.nv.us', 89441: 'Jill.Dickman@asm.state.nv.us', 89442: 'Alexis.Hansen@asm.state.nv.us', 89444: 'Gregory.Koenig@asm.state.nv.us', 89445: 'Alexis.Hansen@asm.state.nv.us', 89446: 'Alexis.Hansen@asm.state.nv.us', 89447: 'Gregory.Koenig@asm.state.nv.us', 89448: 'Ken.Gray@asm.state.nv.us', 89449: 'Ken.Gray@asm.state.nv.us', 89450: 'Rich.Delong@asm.state.nv.us', 89451: 'Rich.Delong@asm.state.nv.us', 89452: 'Rich.Delong@asm.state.nv.us', 89460: 'Ken.Gray@asm.state.nv.us', 89496: 'Reuben.DSilva@asm.state.nv.us', 89501: 'erica.roth@asm.state.nv.us', 89502: 'erica.roth@asm.state.nv.us', 89503: 'erica.roth@asm.state.nv.us', 89504: 'erica.roth@asm.state.nv.us', 89505: 'erica.roth@asm.state.nv.us', 89506: 'Jill.Dickman@asm.state.nv.us', 89507: 'erica.roth@asm.state.nv.us', 89508: 'Alexis.Hansen@asm.state.nv.us', 89509: 'erica.roth@asm.state.nv.us', 89510: 'Alexis.Hansen@asm.state.nv.us', 89511: 'Selena.La.Rue.Hatch@asm.state.nv.us', 89512: 'erica.roth@asm.state.nv.us', 89513: 'erica.roth@asm.state.nv.us', 89515: 'erica.roth@asm.state.nv.us', 89519: 'Selena.La.Rue.Hatch@asm.state.nv.us', 89520: 'erica.roth@asm.state.nv.us', 89521: 'PK.Oneill@asm.state.nv.us', 89523: 'Selena.La.Rue.Hatch@asm.state.nv.us', 89533: 'heather.goulding@asm.state.nv.us', 89555: 'erica.roth@asm.state.nv.us', 89557: 'erica.roth@asm.state.nv.us', 89570: 'erica.roth@asm.state.nv.us', 89595: 'erica.roth@asm.state.nv.us', 89599: 'erica.roth@asm.state.nv.us', 89701: 'PK.Oneill@asm.state.nv.us', 89702: 'PK.Oneill@asm.state.nv.us', 89703: 'PK.Oneill@asm.state.nv.us', 89704: 'Rich.Delong@asm.state.nv.us', 89705: 'Ken.Gray@asm.state.nv.us', 89706: 'Ken.Gray@asm.state.nv.us', 89711: 'PK.Oneill@asm.state.nv.us', 89712: 'PK.Oneill@asm.state.nv.us', 89713: 'PK.Oneill@asm.state.nv.us', 89714: 'PK.Oneill@asm.state.nv.us', 89721: 'PK.Oneill@asm.state.nv.us', 89801: 'Alexis.Hansen@asm.state.nv.us', 89802: 'Bert.Gurr@asm.state.nv.us', 89803: 'Bert.Gurr@asm.state.nv.us', 89815: 'Bert.Gurr@asm.state.nv.us', 89820: 'Alexis.Hansen@asm.state.nv.us', 89821: 'Alexis.Hansen@asm.state.nv.us', 89822: 'Alexis.Hansen@asm.state.nv.us', 89823: 'Bert.Gurr@asm.state.nv.us', 89825: 'Bert.Gurr@asm.state.nv.us', 89826: 'Bert.Gurr@asm.state.nv.us', 89828: 'Bert.Gurr@asm.state.nv.us', 89830: 'Bert.Gurr@asm.state.nv.us', 89831: 'Alexis.Hansen@asm.state.nv.us', 89832: 'Alexis.Hansen@asm.state.nv.us', 89833: 'Bert.Gurr@asm.state.nv.us', 89834: 'Alexis.Hansen@asm.state.nv.us', 89835: 'Bert.Gurr@asm.state.nv.us', 89883: 'Bert.Gurr@asm.state.nv.us  ', 89884: 'karimfop21@yahoo.com'};
+
+        function findLegislator() {
+            const zipCode = document.getElementById("zip").value.trim();
+            const fullName = document.getElementById("name").value.trim();
+            const legislatorEmail = legislatorData[zipCode];
+
+            if (legislatorEmail && fullName) {
+                const subject = encodeURIComponent("Support Assembly Bill AB 498");
+                const body = encodeURIComponent(`My name is [fullName], and I am a resident of your district in Nevada. 
+I am writing to express my strong support for Assembly Bill AB 498, which seeks to cut the retirement contribution burden from state employees in half. 
+State employees play a vital role in maintaining Nevada’s public services, yet many struggle with the rising cost of living while carrying a disproportionate share of retirement contributions. 
+By supporting AB 498, you will ensure that our workforce remains strong, motivated, and financially secure.
+
+I urge you to support this bill and stand with Nevada's dedicated workforce.
+
+Sincerely,
+[fullName]`.replace(/\[fullName\]/g, fullName));
+                const mailtoLink = `mailto:${legislatorEmail}?subject=${subject}&body=${body}`;
+                
+                document.getElementById("result").innerHTML = 
+                    `<a href="${mailtoLink}" target="_blank" class="email-button">📨 Send Email to Your Legislator</a>`;
+            } else {
+                document.getElementById("result").innerHTML = "⚠️ Please enter your full name and a valid zip code.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- FOP Lodge 21 Ad Section -->
+    <div class="fop-ad">
+        <a href="https://www.fopco21.com" target="_blank">
+            <img src="https://i.postimg.cc/PxDqN3Fk/IMG-6898.jpg" alt="Support FOP Lodge 21">
+        </a>
+        <a href="https://www.fopco21.com" target="_blank">Visit FOP Lodge 21</a>
+    </div>
+
+    <!-- Main Form -->
+    <div class="container">
+        <h2>Contact Your Legislator - AB 498</h2>
+        <p>Fill in your details below to send an email to your representative in support of Assembly Bill AB 498.</p>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name">
+        <br>
+        <label for="zip">Zip Code:</label>
+        <input type="text" id="zip" placeholder="Enter your zip code">
+        <button onclick="findLegislator()">Send Email</button>
+        <p id="result"></p>
+    </div>
+</body>
+</html>
