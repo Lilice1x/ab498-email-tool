@@ -148,13 +148,17 @@
             const legislatorEmail = legislatorData[zipCode];
 
             if (legislatorEmail && fullName) {
-                const subject = encodeURIComponent("Support Assembly Bill AB 498");
-                const body = encodeURIComponent(`My name is [fullName], and I am a resident of your district in Nevada. 
-I am writing to express my strong support for Assembly Bill AB 498, which seeks to cut the retirement contribution burden from state employees in half. 
-State employees play a vital role in maintaining Nevada’s public services, yet many struggle with the rising cost of living while carrying a disproportionate share of retirement contributions. 
-By supporting AB 498, you will ensure that our workforce remains strong, motivated, and financially secure.
+                const subject = encodeURIComponent("Support Support Nevada State Employees");
+                const body = encodeURIComponent(`I am writing to you as a concerned member of your district regarding the current challenges faced by state employees in Nevada. As you may be aware, the rising costs of retirement contributions and healthcare are placing a significant financial burden on our dedicated workforce. This is further compounded by the difficulties state agencies are experiencing in hiring and retaining qualified employees.
 
-I urge you to support this bill and stand with Nevada's dedicated workforce.
+State employees play a crucial role in ensuring the smooth functioning of our government and the delivery of essential services to the public. However, the increasing financial pressures are making it increasingly difficult for these employees to sustain their livelihoods and for state agencies to maintain a stable and efficient workforce.
+
+We kindly request your support in addressing these pressing issues. Specifically, we urge you to consider measures that would alleviate the financial strain on state employees, such as providing additional funding to offset the rising costs of retirement contributions and healthcare. Additionally, we ask for your support in implementing initiatives aimed at improving employee retention and attracting new talent to state agencies.
+
+By taking action to support state employees, we can ensure that Nevada continues to have a strong and dedicated workforce capable of meeting the needs of our community. Your attention and assistance in this matter are greatly appreciated.
+
+Thank you for your time and consideration.
+
 
 Sincerely,
 [fullName]`.replace(/\[fullName\]/g, fullName));
